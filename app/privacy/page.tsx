@@ -11,15 +11,20 @@ export default function Privacy() {
       </p>
       <div className="mt-8 space-y-6 leading-7 text-muted">
         <p>
-          Northline collects the name, email address, optional phone number, and
-          message you submit so our team can respond to your project inquiry.
-          Your submission is stored in our PostgreSQL database and processed by
-          our hosting and database providers.
+          Northline collects the name, email address, optional phone number,
+          company, project type, budget, timeline, submission source, and
+          message you submit through the inquiry form or guided assistant so our
+          team can respond to your project inquiry. Your submission is stored in
+          our PostgreSQL database and processed by our hosting and database
+          providers.
         </p>
         <p>
-          This site does not include advertising trackers or analytics. If you
-          choose to book through Calendly, its own privacy policy applies on its
-          website.
+          The theme preference is stored locally in your browser. Assistant
+          choices stay in page memory until you submit the brief. Dashboard and
+          system-map demonstrations use fictional data and do not trigger
+          external integrations. This site does not include advertising trackers
+          or analytics. If you choose to book through Calendly, its own privacy
+          policy applies on its website.
         </p>
         <p>
           We do not sell inquiry data. Access should be limited to the agency

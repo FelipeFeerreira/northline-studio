@@ -1,53 +1,56 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 import { site } from "@/lib/site";
-export const metadata: Metadata = { title: "Let’s talk" };
+export const metadata: Metadata = { title: "Start your project" };
 export default function Contact() {
   return (
-    <section className="container-shell grid gap-12 py-16 md:grid-cols-2 md:py-24">
+    <section className="container-shell contact-page">
       <div>
-        <p className="eyebrow mb-5">Start a conversation</p>
+        <p className="eyebrow mb-5">FROM POSSIBILITY TO PRODUCT</p>
         <h1 className="section-title">
-          Something on
+          Your next system
           <br />
-          your mind?
+          starts with
           <br />
-          <span className="text-[#718069]">Let’s build on it.</span>
+          <span className="text-muted">a conversation.</span>
         </h1>
         <p className="mt-7 max-w-md leading-7 text-muted">
-          A new website, a better store, or one less manual task. Tell us what
-          you need and we’ll explore the next step together.
+          A product to launch, a workflow to simplify, or a system to connect.
+          Tell us where you are and where you want to go.
         </p>
-        <div className="mt-9 border-t border-line pt-7">
-          <h2 className="text-lg font-medium">Prefer to talk it through?</h2>
-          {site.calendly ? (
-            <a
-              href={site.calendly}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="button mt-5"
-            >
-              Schedule a call <span aria-hidden="true">↗</span>
-            </a>
-          ) : (
-            <a
-              className="button mt-5"
-              href={`mailto:${site.email}?subject=Schedule%20an%20introductory%20call`}
-            >
-              Arrange a call by email ↗
-            </a>
-          )}
-          <p className="mt-5 text-sm text-muted">
-            Or email{" "}
+        <ol className="contact-steps">
+          <li>
+            <span>01</span>Share the context and the challenge.
+          </li>
+          <li>
+            <span>02</span>Explore the technical direction together.
+          </li>
+          <li>
+            <span>03</span>Define a focused scope and proposal.
+          </li>
+        </ol>
+        {site.calendly && (
+          <a
+            className="text-link"
+            href={site.calendly}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Schedule a conversation ↗
+          </a>
+        )}
+        {site.email !== "hello@example.com" && (
+          <p className="mt-6 text-sm text-muted">
+            Prefer email?{" "}
             <a className="underline" href={`mailto:${site.email}`}>
               {site.email}
             </a>
           </p>
-        </div>
-        <p className="mt-10 text-xs leading-6 text-muted">
-          Your direct line to our three-person team.
+        )}
+        <p className="contact-note">
+          Early-stage idea? That’s a valid starting point.
           <br />
-          Working with businesses across the US and Europe.
+          Use “Let’s discuss” for anything still taking shape.
         </p>
       </div>
       <ContactForm />

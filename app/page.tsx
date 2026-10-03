@@ -1,43 +1,31 @@
 import Hero from "@/components/Hero";
+import DashboardDemo from "@/components/DashboardDemo";
 import {
   Services,
   Portfolio,
   Process,
-  Testimonials,
-  Pricing,
+  TechStack,
   ContactCTA,
 } from "@/components/Sections";
 export default function Home() {
   return (
     <>
       <Hero />
-      <div className="border-y border-line">
-        <div className="container-shell flex flex-wrap items-center justify-between gap-5 py-7 text-xs text-muted">
-          <span className="uppercase tracking-widest">
-            Built for your kind of business
-          </span>
-          {[
-            "Consultancies",
-            "Fitness & wellness",
-            "Agencies",
-            "E-commerce",
-            "Service providers",
-          ].map((x) => (
-            <span className="font-semibold" key={x}>
-              {x}
-            </span>
-          ))}
+      <div className="capability-strip">
+        <div className="container-shell">
+          <span>THINK BEYOND THE WEBSITE.</span>
+          <span>Digital products</span>
+          <i>✳</i>
+          <span>Connected systems</span>
+          <i>✳</i>
+          <span>Intelligent workflows</span>
         </div>
       </div>
       <Services />
-      <div className="border-y border-line bg-[#eef1e9]">
-        <Portfolio />
-      </div>
+      <DashboardDemo />
+      <Portfolio />
       <Process />
-      <div className="border-y border-line">
-        <Testimonials />
-      </div>
-      <Pricing />
+      <TechStack />
       <ContactCTA />
     </>
   );

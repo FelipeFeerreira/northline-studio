@@ -3,6 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import { useUIStore } from "@/lib/store";
+import ThemeToggle from "./ThemeToggle";
 import { navigation } from "@/lib/site";
 export default function Header() {
   const { menuOpen, toggleMenu, closeMenu } = useUIStore();
@@ -11,22 +12,22 @@ export default function Header() {
     closeMenu();
   }, [path, closeMenu]);
   return (
-    <header className="relative z-30 border-b border-line bg-paper">
-      <div className="container-shell flex h-24 items-center justify-between">
+    <header className="site-header sticky top-0 z-30 border-b border-line bg-paper">
+      <div className="container-shell flex h-20 items-center justify-between">
         <Link
           href="/"
           aria-label="Northline home"
           onClick={closeMenu}
           className="flex items-center gap-2 text-2xl font-bold tracking-tight"
         >
-          <span aria-hidden="true" className="text-3xl">
+          <span aria-hidden="true" className="brand-mark">
             ↗
           </span>{" "}
           northline<span className="text-muted">.</span>
         </Link>
         <nav
           aria-label="Main navigation"
-          className="hidden items-center gap-9 md:flex"
+          className="hidden items-center gap-5 lg:gap-9 md:flex"
         >
           {navigation.map((n) => (
             <Link
@@ -39,21 +40,24 @@ export default function Header() {
             </Link>
           ))}
         </nav>
-        <Link href="/contact" className="button hidden md:inline-flex">
-          Let’s talk <span aria-hidden="true">↗</span>
-        </Link>
-        <button
-          className="rounded-full border border-line px-4 py-2 md:hidden"
-          aria-expanded={menuOpen}
-          aria-controls="mobile-navigation"
-          aria-label={menuOpen ? "Close navigation" : "Open navigation"}
-          onClick={toggleMenu}
-          onKeyDown={(e) => {
-            if (e.key === "Escape") closeMenu();
-          }}
-        >
-          {menuOpen ? "Close ×" : "Menu ☰"}
-        </button>
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          <Link href="/contact" className="button hidden md:inline-flex">
+            Start a project <span aria-hidden="true">↗</span>
+          </Link>
+          <button
+            className="min-h-11 rounded-md border border-line px-3 py-2 md:hidden"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-navigation"
+            aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+            onClick={toggleMenu}
+            onKeyDown={(e) => {
+              if (e.key === "Escape") closeMenu();
+            }}
+          >
+            {menuOpen ? "Close ×" : "Menu ☰"}
+          </button>
+        </div>
       </div>
       {menuOpen && (
         <nav
@@ -70,7 +74,7 @@ export default function Header() {
                 key={n.href}
                 href={n.href}
                 onClick={closeMenu}
-                className="rounded-lg px-3 py-3 hover:bg-accent"
+                className="rounded-lg px-3 py-3 hover:bg-surface"
               >
                 {n.label}
               </Link>

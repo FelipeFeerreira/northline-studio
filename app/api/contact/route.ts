@@ -69,6 +69,11 @@ export async function POST(request: Request) {
         email: data.email,
         phone: data.phone || null,
         message: data.message,
+        company: data.company || null,
+        projectType: data.projectType || null,
+        budget: data.budget || null,
+        timeline: data.timeline || null,
+        source: data.source || "inquiry",
       },
     });
     return NextResponse.json(

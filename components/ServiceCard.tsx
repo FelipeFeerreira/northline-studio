@@ -11,34 +11,25 @@ export default function ServiceCard({
   tags: string[];
 }) {
   return (
-    <article className="flex flex-col rounded-2xl border border-line bg-white p-7 md:p-9">
-      <div className="mb-10 flex justify-between">
-        <span
-          className="flex h-11 w-11 items-center justify-center rounded-xl bg-paper text-xl"
-          aria-hidden="true"
-        >
-          {number === "01" ? "⌘" : "✳"}
+    <article className="service-item">
+      <div className="service-number">
+        <span>{number} /</span>
+        <span aria-hidden="true">
+          {["◫", "✳", "⌁", "▥", "⇄", "⌘"][Number(number) - 1]}
         </span>
-        <span className="text-xs text-muted">/ {number}</span>
       </div>
-      <h3 className="text-2xl font-medium tracking-tight">{title}</h3>
-      <p className="mt-4 max-w-md leading-7 text-muted">{description}</p>
-      <div className="mt-6 flex flex-wrap gap-2">
-        {tags.map((t) => (
-          <span
-            key={t}
-            className="rounded-full border border-line px-3 py-1 text-xs text-muted"
-          >
-            {t}
-          </span>
+      <h3>
+        <Link href="/contact">
+          {title}
+          <span aria-hidden="true">↗</span>
+        </Link>
+      </h3>
+      <p>{description}</p>
+      <div className="service-tags">
+        {tags.map((tag) => (
+          <span key={tag}>{tag}</span>
         ))}
       </div>
-      <Link
-        href="/contact"
-        className="mt-8 flex items-center justify-between border-t border-line pt-5 text-sm font-semibold"
-      >
-        Let’s talk about your project <span aria-hidden="true">↗</span>
-      </Link>
     </article>
   );
 }

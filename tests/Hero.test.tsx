@@ -4,7 +4,7 @@ import Hero from "@/components/Hero";
 it("shows the core value proposition and a contact CTA", () => {
   render(<Hero />);
   expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
-    "Better websites.Smarter systems.Room to grow.",
+    "We build the systems behind your business.",
   );
   expect(
     screen.getByRole("link", { name: /let’s build something/i }),

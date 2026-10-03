@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const config = {
   poweredByHeader: false,
+  // Optional isolated output for verification in synced/locked workspaces.
+  distDir: process.env.NORTHLINE_BUILD_DIR || ".next",
   async headers() {
     return [
       {

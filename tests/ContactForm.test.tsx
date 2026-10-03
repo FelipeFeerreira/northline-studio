@@ -39,12 +39,10 @@ it("submits and confirms a persisted inquiry", async () => {
 it("retains the inquiry when the server fails", async () => {
   vi.stubGlobal(
     "fetch",
-    vi
-      .fn()
-      .mockResolvedValue({
-        ok: false,
-        json: async () => ({ error: "Please try again." }),
-      }),
+    vi.fn().mockResolvedValue({
+      ok: false,
+      json: async () => ({ error: "Please try again." }),
+    }),
   );
   const user = await fill();
   await user.click(screen.getByRole("button", { name: /Send your inquiry/ }));

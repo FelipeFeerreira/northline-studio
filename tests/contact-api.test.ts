@@ -21,7 +21,17 @@ it("persists validated contact data", async () => {
   create.mockResolvedValue({ id: "contact1" });
   const response = await POST(request(data));
   expect(response.status).toBe(201);
-  expect(create).toHaveBeenCalledWith({ data: { ...data, phone: null } });
+  expect(create).toHaveBeenCalledWith({
+    data: {
+      ...data,
+      phone: null,
+      company: null,
+      projectType: null,
+      budget: null,
+      timeline: null,
+      source: "inquiry",
+    },
+  });
 });
 it("rejects invalid input before writing", async () => {
   expect((await POST(request({ ...data, email: "invalid" }))).status).toBe(400);
@@ -45,5 +55,24 @@ it("rejects oversized payloads", async () => {
   expect(
     (await POST(request({ ...data, message: "x".repeat(25000) }))).status,
   ).toBe(413);
+  expect(create).not.toHaveBeenCalled();
+});
+
+it("persists all qualification fields from the assistant", async () => {
+  const details = {
+    company: "Example",
+    projectType: "Dashboard",
+    budget: "Under $5k",
+    timeline: "Within a month",
+    source: "chatbot",
+  };
+  create.mockResolvedValue({ id: "lead" });
+  expect((await POST(request({ ...data, ...details }))).status).toBe(201);
+  expect(create).toHaveBeenCalledWith({
+    data: { ...data, ...details, phone: null },
+  });
+});
+it("rejects invalid qualification before persistence", async () => {
+  expect((await POST(request({ ...data, source: "admin" }))).status).toBe(400);
   expect(create).not.toHaveBeenCalled();
 });

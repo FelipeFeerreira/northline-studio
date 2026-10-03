@@ -20,7 +20,7 @@ export default function PortfolioItem({
           height={480}
           className="h-auto w-full"
         />
-        <span className="absolute left-5 top-5 rounded-full bg-white/95 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider">
+        <span className="absolute left-5 top-5 rounded-full bg-white/95 text-[#182b29] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider">
           Concept project
         </span>
       </div>

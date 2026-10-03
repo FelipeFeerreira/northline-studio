@@ -7,8 +7,8 @@ export const site = {
   github: process.env.NEXT_PUBLIC_GITHUB_URL || "",
 };
 export const navigation = [
-  { label: "Services", href: "/services" },
+  { label: "Capabilities", href: "/services" },
   { label: "Our work", href: "/portfolio" },
   { label: "Process", href: "/process" },
-  { label: "Pricing", href: "/pricing" },
+  { label: "Engagements", href: "/pricing" },
 ];
