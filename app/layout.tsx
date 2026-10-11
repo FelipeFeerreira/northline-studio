@@ -1,24 +1,57 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Providers } from "@/components/Providers";
 import Header from "@/components/Header";
 import Chatbot from "@/components/Chatbot";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
+const siteDescription =
+  "Independent digital product studio building custom web apps, AI assistants and automation, dashboards, and internal tools.";
+const socialProfiles = [site.linkedin, site.github].filter(Boolean);
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
     default: "Northline Studio — Digital Products, Systems & AI",
-    template: "%s | Northline",
+    template: "%s | Northline Studio",
   },
-  description:
-    "Independent digital product studio building web applications, custom systems, dashboards, and intelligent automation.",
+  description: siteDescription,
+  applicationName: "Northline Studio",
+  alternates: { canonical: "/" },
   openGraph: {
     title: "Northline — We build the systems behind your business.",
-    description:
-      "Web development and practical automation for your next stage of growth.",
+    description: siteDescription,
+    url: "/",
+    siteName: "Northline Studio",
     type: "website",
+    locale: "en_US",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Northline — We build the systems behind your business.",
+    description: siteDescription,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+export const viewport: Viewport = {
+  colorScheme: "dark light",
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#101312" },
+    { media: "(prefers-color-scheme: light)", color: "#f5f6f1" },
+  ],
+};
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Northline Studio",
+  url: site.url,
+  description: siteDescription,
+  ...(site.email && site.email !== "hello@example.com"
+    ? { email: site.email }
+    : {}),
+  ...(socialProfiles.length ? { sameAs: socialProfiles } : {}),
 };
 export default function RootLayout({
   children,
@@ -32,6 +65,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem("northline-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}})()`,
           }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
       <body>

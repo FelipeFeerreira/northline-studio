@@ -12,3 +12,40 @@ export const navigation = [
   { label: "Process", href: "/process" },
   { label: "Engagements", href: "/pricing" },
 ];
+export function pageMetadata({
+  title,
+  description,
+  path,
+}: {
+  title: string;
+  description: string;
+  path: string;
+}) {
+  const socialTitle = `${title} | Northline Studio`;
+  return {
+    title,
+    description,
+    alternates: { canonical: path },
+    openGraph: {
+      title: socialTitle,
+      description,
+      url: path,
+      siteName: "Northline Studio",
+      type: "website" as const,
+      images: [
+        {
+          url: "/opengraph-image.png",
+          width: 1200,
+          height: 630,
+          alt: "Northline Studio — we build the systems behind your business",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image" as const,
+      title: socialTitle,
+      description,
+      images: ["/opengraph-image.png"],
+    },
+  };
+}

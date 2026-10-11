@@ -13,8 +13,8 @@ export default function Hero() {
           <span>your business.</span>
         </h1>
         <p className="hero-description">
-          Exceptional web experiences. Custom software. Intelligent automation.
-          Connected by design, built around you.
+          Custom web apps, AI assistants and automation, dashboards, and
+          internal tools — designed, built, and connected around your business.
         </p>
         <div className="hero-actions">
           <Link href="/contact" className="button">

@@ -1,5 +1,10 @@
-import { site } from "@/lib/site";
-export const metadata = { title: "Privacy notice" };
+import { site, pageMetadata } from "@/lib/site";
+export const metadata = pageMetadata({
+  title: "Privacy notice",
+  description:
+    "How Northline Studio handles the information you submit through the inquiry form and guided assistant.",
+  path: "/privacy",
+});
 export default function Privacy() {
   return (
     <article className="container-shell max-w-3xl py-20">

@@ -68,18 +68,20 @@ export default function Header() {
             if (e.key === "Escape") closeMenu();
           }}
         >
-          {[...navigation, { label: "Let’s talk", href: "/contact" }].map(
-            (n) => (
-              <Link
-                key={n.href}
-                href={n.href}
-                onClick={closeMenu}
-                className="rounded-lg px-3 py-3 hover:bg-surface"
-              >
-                {n.label}
-              </Link>
-            ),
-          )}
+          {navigation.map((n) => (
+            <Link
+              key={n.href}
+              href={n.href}
+              onClick={closeMenu}
+              aria-current={path === n.href ? "page" : undefined}
+              className="rounded-lg px-3 py-3 hover:bg-surface aria-[current=page]:text-ink"
+            >
+              {n.label}
+            </Link>
+          ))}
+          <Link href="/contact" onClick={closeMenu} className="button mt-3">
+            Start a project <span aria-hidden="true">↗</span>
+          </Link>
         </nav>
       )}
     </header>

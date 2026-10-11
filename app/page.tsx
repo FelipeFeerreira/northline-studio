@@ -15,9 +15,9 @@ export default function Home() {
         <div className="container-shell">
           <span>THINK BEYOND THE WEBSITE.</span>
           <span>Digital products</span>
-          <i>✳</i>
+          <i aria-hidden="true">✳</i>
           <span>Connected systems</span>
-          <i>✳</i>
+          <i aria-hidden="true">✳</i>
           <span>Intelligent workflows</span>
         </div>
       </div>

@@ -1,5 +1,16 @@
 # Portfolio verification
 
+## Discoverability and conversion revision — October 11, 2026
+
+Reviewed the existing App Router structure, shared sections, contact flow, validation, Prisma schema, and tests before editing. No framework, dependency, schema, or API contract was changed.
+
+- Discovery: every route now emits a per-page title, description, and canonical URL; the layout adds a shared Open Graph/Twitter summary and valid `ProfessionalService` JSON-LD. Structured data only includes values that are actually configured (contact email and social profiles are omitted while they remain placeholders).
+- Social preview: `app/opengraph-image.png` (1200 × 630) is a real crop of the running dark homepage, used by both Open Graph and Twitter cards.
+- Conversion: the mobile navigation renders the primary "Start a project" action as a button instead of a plain link. The hero now names the three core offerings explicitly (web apps, AI assistants/automation, dashboards/internal tools).
+- Accessibility and cleanup: decorative capability separators are hidden from assistive tech; the unused placeholder `TestimonialCard` component was removed.
+- Verified: `npm run typecheck` clean, 27/27 Vitest tests pass, `npm run build` prerenders all static routes including `/opengraph-image.png`, and the running production server emits the expected canonical, `og:image`, `twitter:image`, and valid JSON-LD on the home, services, portfolio, and contact routes.
+- Unchanged limitations: the Next.js 14 release advisory, mocked-database API tests, and unavailable local PostgreSQL documented below still apply.
+
 ## Flagship studio revision — October 3, 2026
 
 The existing repository was reviewed before implementation: App Router pages, shared components, providers/state, contact API, validation, Prisma schema/migration, local illustrations, configuration, and tests. The existing architecture and database-backed contact flow were retained.

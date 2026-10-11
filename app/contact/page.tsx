@@ -1,7 +1,11 @@
-import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
-import { site } from "@/lib/site";
-export const metadata: Metadata = { title: "Start your project" };
+import { site, pageMetadata } from "@/lib/site";
+export const metadata = pageMetadata({
+  title: "Start your project",
+  description:
+    "Share your project context and goals. Tell Northline what you want to build and we'll map a technical direction and scope.",
+  path: "/contact",
+});
 export default function Contact() {
   return (
     <section className="container-shell contact-page">
