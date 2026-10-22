@@ -199,3 +199,9 @@ The configured local PostgreSQL server was unavailable during this revision (P10
 The theme preference is stored locally; assistant drafts remain in page memory while minimized and clear on reload. The schema adds company, projectType, budget, timeline, and source without removing existing records. No runtime dependency was added for the redesign.
 
 Original portfolio illustrations remain explicitly labelled as concept work. The preserved secondary routes share the same reusable sections and visual system.
+
+---
+
+## License
+
+MIT - see [LICENSE](LICENSE). You may use, modify and redistribute this code with attribution.
