@@ -18,6 +18,7 @@ A digital product studio portfolio exploring web applications, custom systems, a
 |:--|:--|
 | **Live demo** | [northline-studio.vercel.app](https://northline-studio.vercel.app) |
 | **Screenshots** | [docs/images](docs/images) |
+| **CI** | [![CI](https://github.com/FelipeFeerreira/northline-studio/actions/workflows/ci.yml/badge.svg)](https://github.com/FelipeFeerreira/northline-studio/actions/workflows/ci.yml) |
 | **Stack** | Next.js 14 · React · TypeScript · Prisma · PostgreSQL · TanStack Query · Zustand |
 | **License** | MIT — [LICENSE](LICENSE) |
 
