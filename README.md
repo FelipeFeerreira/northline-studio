@@ -14,6 +14,13 @@ A digital product studio portfolio exploring web applications, custom systems, a
 
 ![Northline Studio — dark homepage with interactive system architecture](docs/images/home-dark.png)
 
+| | |
+|:--|:--|
+| **Live demo** | [northline-studio.vercel.app](https://northline-studio.vercel.app) |
+| **Screenshots** | [docs/images](docs/images) |
+| **Stack** | Next.js 14 · React · TypeScript · Prisma · PostgreSQL · TanStack Query · Zustand |
+| **License** | MIT — [LICENSE](LICENSE) |
+
 ## About the project
 
 Northline brings the agency's capabilities into the interface itself: an explorable system map, an interactive operations dashboard, and a guided project assistant. The existing Next.js application and PostgreSQL-backed contact API power a more complete product experience.
@@ -193,7 +200,6 @@ Run npm test, npm run typecheck, and npm run build. Vitest uses its runner confi
 
 The configured local PostgreSQL server was unavailable during this revision (P1001 at localhost:5432). The migration was created and Prisma Client generated, but live persistence and migration execution could not be verified. Start/configure PostgreSQL and run npm run db:deploy before using lead capture. No database changes were applied by this revision.
 
-
 ## Implementation notes
 
 The theme preference is stored locally; assistant drafts remain in page memory while minimized and clear on reload. The schema adds company, projectType, budget, timeline, and source without removing existing records. No runtime dependency was added for the redesign.
@@ -201,6 +207,12 @@ The theme preference is stored locally; assistant drafts remain in page memory w
 Original portfolio illustrations remain explicitly labelled as concept work. The preserved secondary routes share the same reusable sections and visual system.
 
 ---
+
+## What I would do next
+
+- Upgrade off Next.js 14 (the open advisory blocks a production release) and re-verify the build.
+- Run the API tests against a real PostgreSQL instance instead of mocked Prisma.
+- Replace the placeholder agency content and add a simple CMS for case studies.
 
 ## License
 
